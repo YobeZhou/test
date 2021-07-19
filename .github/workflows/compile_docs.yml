@@ -53,19 +53,16 @@ jobs:
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1
       - name: Build examples (with cache)
-        run:  |
-              chmod 777 scripts -R
+        run:  chmod 777 scripts -R
               scripts/build_html_examples.sh
       - name: Build docs
-        run:  |
-              chmod 777 docs/build.py
+        run:  chmod 777 docs/build.py
               docs/build.py
-      #- name: Remove .doctrees
-      #  run: rm -rf out_html/.doctrees
+      - name: Remove .doctrees
+        run: ls -l && rm -rf out_html/.doctrees
       - name: Retrieve version
         run: |
-          ls -l
-          ls -l emsdk-cache
+          ls -l &&  ls -l emsdk-cache
           echo "::set-output name=VERSION_NAME::$(scripts/find_version.sh)"
         id: version
       #- name: Deploy
