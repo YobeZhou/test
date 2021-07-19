@@ -58,11 +58,13 @@ jobs:
       - name: Build docs
         run:  chmod 777 docs/build.py
               docs/build.py
-      - name: Remove .doctrees
-        run: rm -rf out_html/.doctrees
+      #- name: Remove .doctrees
+      #  run: rm -rf out_html/.doctrees
       - name: Retrieve version
         run: |
-          ls -l && ls out_html
+          ls -l
+          ls out_html 
+          ls -l emsdk-cache
           echo "::set-output name=VERSION_NAME::$(scripts/find_version.sh)"
         id: version
       #- name: Deploy
