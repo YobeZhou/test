@@ -53,7 +53,8 @@ jobs:
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1
       - name: Build examples (with cache)
-        run: scripts/build_html_examples.sh
+        run:  chmod 777 scripts/build_html_examples.sh
+              scripts/build_html_examples.sh
       - name: Build docs
         run: docs/build.py
       - name: Remove .doctrees
