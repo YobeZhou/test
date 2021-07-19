@@ -62,7 +62,7 @@ jobs:
         run: ls -l && rm -rf out_html/.doctrees
       - name: Retrieve version
         run: |
-          ls -l &&  ls -l emsdk-cache
+          ls -l &&  ls -l emsdk-cache && ls -l docs && ls -l docs/out_html
           echo "::set-output name=VERSION_NAME::$(scripts/find_version.sh)"
         id: version
       #- name: Deploy
